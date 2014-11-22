@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'reports/export', to: 'reports#export'
+
   resources :reports
   resources :site, only: :index
 end

@@ -8,13 +8,10 @@
         <div class="box-header">
           <h3 class="box-title">Listagem <%= sign(current_user.total_balance) %></h3>
           <%= render 'search_form' %>
+          <%= render 'print_menu' %>
         </div>
         <%= render 'list' %>
       </div>
     </div>
   </div>
 </section>
-
-<% content_for :javascript_includes do %>
-  <%= javascript_include_tag "reports/index.js" %>
-<% end %>

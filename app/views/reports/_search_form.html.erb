@@ -3,14 +3,15 @@
                                    html: { class: 'form-inline' },
                                    url: reports_path,
                                    method: :get do |f| %>
-  <button class="btn btn-default" id="daterange-btn">
-      <i class="fa fa-calendar"></i> Datas
-      <i class="fa fa-caret-down"></i>
-  </button>
-  <%= f.input :from, input_html: { name: 'from',
-                                   value: @from.strftime('%d/%m/%Y') } %>
-  <%= f.input :to, input_html: { name: 'to',
-                                 value: @to.strftime('%d/%m/%Y') } %>
-  <%= f.button :submit, 'BUSCAR', { class: 'btn btn-primary' } %>
-<% end %>
+    <button class="btn btn-default" id="daterange-btn">
+        <i class="fa fa-calendar"></i> Datas
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <%= f.input :from, input_html: { name: 'from',
+                                     value: @from.strftime('%d/%m/%Y') } %>
+    <%= f.input :to, input_html: { name: 'to',
+                                   value: @to.strftime('%d/%m/%Y') } %>
+    <%= f.button :submit, 'BUSCAR', { class: 'btn btn-primary' } %>
+
+  <% end %>
 </div>

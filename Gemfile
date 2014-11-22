@@ -12,6 +12,8 @@ gem 'kaminari'
 
 gem 'mina'
 
+gem 'prawn'
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'font-awesome-rails'
@@ -30,6 +32,7 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'sqlite3'
   gem 'mailcatcher'
+  gem 'therubyracer'
 end
 
 group :test do
