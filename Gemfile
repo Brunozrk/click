@@ -13,6 +13,7 @@ gem 'kaminari'
 gem 'mina'
 
 gem 'prawn'
+gem 'prawn-table'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.2.0'

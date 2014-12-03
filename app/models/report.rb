@@ -9,6 +9,12 @@ class Report < ActiveRecord::Base
 
   default_scope { order('day DESC') }
 
+  def worked_hour_minute
+    hours = self.worked / (60 * 60)
+    minutes = (self.worked / 60) % 60
+    format('%02d:%02d', hours, minutes)
+  end
+
   def worked
     first_total = time_diff(first_entry, first_exit)
     second_total = time_diff(second_entry, second_exit)
