@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   resources :timetables
 
   resources :site, only: :index
+  get 'como-funciona', action: 'how_it_works', controller: 'site', as: 'how_it_works'
 end

@@ -1,0 +1,29 @@
+<p>Essa funcionalidade permite que você inclua seus horários de entrada e saída, sendo que para cada conjunto de entrada e saída, a somatória das horas trabalhadas é computada, por exemplo:</p>
+
+<ul>
+  <li>Primeira Entrada: 08:00</li>
+  <li>Primeira Saída: 12:00</li>
+  <ul>
+    <li>Horas trabalhadas 12:00 - 08:00 = 04:00</li>
+  </ul>
+  <li>Segunda Entrada: 13:00</li>
+  <li>Segunda Saída: 17:00</li>
+  <ul>
+    <li>Horas trabalhadas: 17:00 - 13:00 = 04:00</li>
+  </ul>
+
+</ul>
+
+<p>Esse dia já está com um total de 8 horas trabalhadas (O que corresponde com a configuração do usuário, lembrando que esse valor pode ser alterado), isso significa que o saldo do dia é zero (Não foram feitas horas extras e nem faltaram horas)</p>
+
+<p>O campo <strong>tempo remoto</strong> corresponde ao tempo trabalhado fora da empresa, de casa, do bar, de onde for. Se for atribuido o valor de 03:00 para o campo, somando no dia, temos:</p>
+
+<ul>
+  <li>08:00 + 03:00 = 11:00</li>
+  <li>Valor total trabalho igual a 11:00, valor configurado na conta igual a 08:00, isso significa 3 horas extras.</li>
+</ul>
+
+
+<p>Se o campo <strong>faltou?</strong> for marcado com o valor sim, o sistema considera uma subtração no saldo equivalente ao valor configurado, no caso atual, menos 8 horas.</p>
+
+<strong>Com o reporte de horas diário, o sistema vai calculando o saldo gerado e mostrando sempre o valor atualizado.</strong>

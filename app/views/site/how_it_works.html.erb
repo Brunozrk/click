@@ -1,0 +1,93 @@
+<div class="how-it-works-header">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="intro-message">
+          <h3>Entenda como o click funciona.</h3>
+          <hr class="intro-divider">
+          <h4>Leia as intruções, é bem simples!</h4>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.container -->
+</div>
+
+<div class="container">
+
+  <!-- Title -->
+  <div class="row">
+    <div class="col-lg-12">
+      <hr class="section-heading-spacer">
+      <div class="clearfix"></div>
+      <h2>Como funciona</h2>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Page Features -->
+  <div class="row text-center">
+
+    <div class="col-md-4 col-sm-6 hero-feature">
+      <div class="thumbnail">
+        <%= image_tag 'create-account.jpg', class: 'img-responsive', alt: 'criando a conta' %>
+        <div class="caption">
+          <h3>Criando a conta</h3>
+          <p>Ao criar a conta algumas configurações são inicializadas.</p>
+          <p>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#create_account">Como assim?</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 hero-feature">
+      <div class="thumbnail">
+        <%= image_tag 'report.jpg', class: 'img-responsive', alt: 'reporte de horas' %>
+        <div class="caption">
+          <h3>Reporte de horas</h3>
+          <p>Você pode incluir seus horários de entrada e saída.</p>
+          <p>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#hours_report">E como funciona?</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 hero-feature">
+      <div class="thumbnail">
+        <%= image_tag 'timetable.png', class: 'img-responsive', alt: 'quadro de horas' %>
+        <div class="caption">
+          <h3>Quadro de horas</h3>
+          <p>Fechando o quadro de horas, um novo se inicia, com saldo zero.</p>
+          <p>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#timetable">Mais informações</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.row -->
+  </div>
+</div>
+<%= render partial: 'layouts/modal', locals: {
+                                               id: 'create_account',
+                                               title: 'Criando a conta',
+                                               body_partial: 'site/create_account'
+                                             } %>
+
+<%= render partial: 'layouts/modal', locals: {
+                                               id: 'hours_report',
+                                               title: 'Reporte de horas',
+                                               body_partial: 'site/hours_report'
+                                             } %>
+<%= render partial: 'layouts/modal', locals: {
+                                               id: 'timetable',
+                                               title: 'Quadro de horas',
+                                               body_partial: 'site/timetable'
+                                             } %>
+
+
+
