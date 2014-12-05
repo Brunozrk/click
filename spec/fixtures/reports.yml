@@ -45,3 +45,27 @@ report_user_logged_in_2:
   second_exit: '15:30'
   day: <%= Date.new(2014, 02, 04)%>
   user: user_logged_in
+
+report_user_logged_in_3:
+  first_entry: '08:00'
+  first_exit: '12:00'
+  second_entry: '14:00'
+  second_exit: '15:30'
+  day: <%= Date.new(2014, 02, 05)%>
+  user: user_logged_in
+
+report_user_logged_in_4:
+  first_entry: '08:00'
+  first_exit: '12:00'
+  second_entry: '14:00'
+  second_exit: '16:00'
+  day: <%= Date.new(2014, 02, 06)%>
+  user: user_logged_in
+
+unallowed_report:
+  first_entry: '08:00'
+  first_exit: '12:00'
+  second_entry: '14:00'
+  second_exit: '16:00'
+  day: <%= Date.new(2014, 02, 06)%>
+  user: unallowed_user

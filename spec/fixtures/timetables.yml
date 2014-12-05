@@ -1,0 +1,7 @@
+timetable_1:
+  closing_day: <%= Date.new(2014, 02, 04)%>
+  user: user_logged_in
+
+unallowed_timetable:
+  closing_day: <%= Date.new(2014, 02, 04)%>
+  user: unallowed_user

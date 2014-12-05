@@ -23,7 +23,5 @@ $(document).ready(function(){
   function(start, end) {
     $('#date_range_from').val(start.format('DD/MM/YYYY'));
     $('#date_range_to').val(end.format('DD/MM/YYYY'));
-  }
-  );
-
+  });
 });

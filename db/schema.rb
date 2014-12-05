@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028122407) do
+ActiveRecord::Schema.define(version: 20141126213248) do
 
   create_table "reports", force: true do |t|
     t.string   "first_entry"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20141028122407) do
   end
 
   add_index "reports", ["user_id"], name: "index_reports_on_user_id"
+
+  create_table "timetables", force: true do |t|
+    t.date     "closing_day"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "timetables", ["user_id"], name: "index_timetables_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -11,4 +11,6 @@ $(document).ready(function(){
     todayBtn: 'linked',
     language: 'pt-BR'
   });
+
+  $('[popover]').popover({ trigger: "hover" });
 });

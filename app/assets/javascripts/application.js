@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require bootstrap-sprockets
 //= require adminLTE/plugins/timepicker/bootstrap-timepicker.min
 //= require adminLTE/plugins/datepicker/bootstrap-datepicker
 //= require adminLTE/plugins/datepicker/locales/bootstrap-datepicker.pt-BR
 //= require adminLTE/plugins/daterangepicker/daterangepicker.js
 //= require adminLTE/AdminLTE/app
+//= require common

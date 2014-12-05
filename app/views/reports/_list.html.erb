@@ -16,12 +16,12 @@
       </thead>
       <tbody>
         <% @reports.each do |r|%>
-        <tr>
+        <tr popover <%= pop_over_notice(r.notice) %> >
           <td><%= r.day.strftime('%d/%m/%Y') %></td>
           <td><%= r.first_entry %></td>
           <td><%= r.first_exit %></td>
           <td><%= r.second_entry %></td>
-          <td><%= r.second_exit %></td>
+          <td><%= second_exit(r) %></td>
           <td><%= r.remote %></td>
           <td><%= hour_minute(r.worked) %></td>
           <td><%= sign(r.balance) %></td>

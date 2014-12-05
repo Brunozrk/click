@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="box box-danger">
+
+      <%= simple_form_for @timetable, wrapper: :vertical_form do |f| %>
+        <div class="box-body content">
+
+          <%= message(@timetable.errors.messages[:base] || '') %>
+
+          <%= f.input :closing_day, wrapper_html: { class: 'col-xs-5'},
+                                    input_html: { class: 'datepicker',
+                                                  autocomplete: 'off',
+                                                  value: @timetable.closing_day.try(:strftime, "%d/%m/%Y") },
+                                    as: :string %>
+
+        </div>
+        <div class="box-footer">
+          <%= f.button :submit, 'Salvar', class: 'btn-primary', data: { disable: true } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

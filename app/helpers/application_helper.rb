@@ -30,4 +30,8 @@ module ApplicationHelper
 
     html.html_safe
   end
+
+  def popover(content)
+    "popover data-toggle='popover' data-content='#{content}'".html_safe
+  end
 end

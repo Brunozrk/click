@@ -15,18 +15,19 @@
 
             <%= message(@report.errors.messages[:base] || '') %>
 
-            <%= f.input :first_entry , wrapper_html: { class: 'col-xs-2 bootstrap-timepicker' },
+            <div class="row col-xs-12">
+            <%= f.input :first_entry , wrapper_html: { class: 'col-xs-3 bootstrap-timepicker' },
                                        input_html: { class: 'timepicker' } %>
 
-            <%= f.input :first_exit , wrapper_html: { class: 'col-xs-2 bootstrap-timepicker' },
+            <%= f.input :first_exit , wrapper_html: { class: 'col-xs-3 bootstrap-timepicker' },
                                        input_html: { class: 'timepicker' } %>
 
-            <%= f.input :second_entry , wrapper_html: { class: 'col-xs-2 bootstrap-timepicker' },
+            <%= f.input :second_entry , wrapper_html: { class: 'col-xs-3 bootstrap-timepicker' },
                                        input_html: { class: 'timepicker' } %>
 
-            <%= f.input :second_exit , wrapper_html: { class: 'col-xs-2 bootstrap-timepicker' },
+            <%= f.input :second_exit , wrapper_html: { class: 'col-xs-3 bootstrap-timepicker' },
                                        input_html: { class: 'timepicker' } %>
-
+            </div>
             <%= f.input :remote , wrapper_html: { class: 'col-xs-5 bootstrap-timepicker' },
                                   input_html: { class: 'timepicker' } %>
 
@@ -49,7 +50,3 @@
     </div>
   </div>
 </section>
-
-<% content_for :javascript_includes do %>
-  <%= javascript_include_tag "reports/form.js" %>
-<% end %>

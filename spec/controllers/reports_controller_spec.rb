@@ -96,7 +96,7 @@ describe ReportsController do
 
   describe 'GET #edit' do
     let(:edit_report) { reports(:report_user_logged_in_1) }
-    let(:unallowed_report) { reports(:report_user_positive_1) }
+    let(:unallowed_report) { reports(:unallowed_report) }
 
     context 'when the current_user is the report owner' do
       it 'assigns edit_report to @report' do
@@ -161,7 +161,7 @@ describe ReportsController do
 
   describe '#DELETE destroy' do
     let(:deleted_report) { reports(:report_user_logged_in_1) }
-    let(:unallowed_report) { reports(:report_user_positive_1) }
+    let(:unallowed_report) { reports(:unallowed_report) }
 
     context 'when the current_user is the report owner' do
       it 'remove the report' do

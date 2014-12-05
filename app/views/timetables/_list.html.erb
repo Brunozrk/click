@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Saldo nos fechamentos</h3>
+      </div>
+      <div class="box-body table-responsive">
+        <div class="dataTables_wrapper form-inline" role="grid">
+          <table class="table table-bordered table-hover dataTable">
+            <thead>
+              <tr>
+                <th>Dia do fechamento</th>
+                <th>Saldo</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if @timetables.each do |t|%>
+              <tr>
+                <td><%= t.closing_day.strftime('%d/%m/%Y') %></td>
+                <td><%= sign(t.balance) %></td>
+                <td>
+                  <%= link_to edit_timetable_path(t), title: 'Editar' do %>
+                    <i class="fa fa-edit"></i>
+                  <% end %>
+                  <%= link_to timetable_path(t), title: 'Excluir',
+                                              data: { confirm: "Você tem certeza?" },
+                                              method: :delete do %>
+                    <i class="fa fa-trash-o"></i>
+                  <% end %>
+                </td>
+              </tr>
+              <% end.empty? %>
+                <tr>
+                  <td colspan="3">Não há fechamentos</td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="box-footer clearfix">
+         <%= paginate @timetables %>
+      </div>
+    </div>
+  </div>
+</div>

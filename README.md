@@ -57,3 +57,4 @@ Novas ideias e contribuintes são bem vindos!
     * [ruby-style-guide](https://github.com/bbatsov/ruby-style-guide)
     * [rails-style-guide](https://github.com/bbatsov/rails-style-guide)
     * [betterspecs](http://betterspecs.org/)
+    * Template utilizado http://www.almsaeedstudio.com/preview

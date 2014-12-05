@@ -52,6 +52,20 @@ describe Report do
     end
   end
 
+  describe 'estimated_exit' do
+    let(:report_without_second_exit) { FactoryGirl.build(:report_without_second_exit) }
+    let(:report) { FactoryGirl.build(:report) }
+
+    context 'when first_entry, first_exit and second_entry are filled && second_exit is NOT filled)' do
+      it { expect(report_without_second_exit.estimated_exit.hour).to eq 18 }
+      it { expect(report_without_second_exit.estimated_exit.min).to eq 30 }
+    end
+
+    context 'when first_entry or first_exit or second_entry are NOT filled || second_exit is filled)' do
+      it { expect(report.estimated_exit).to eq nil }
+    end
+  end
+
   describe '#self.find_by_date_range' do
     let(:date) { Date.new(2014, 02, 03)  }
     it 'find reports by date range' do

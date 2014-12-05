@@ -1,12 +1,18 @@
 <section class="content-header">
-  <h1>Reporte de horas</h1>
+  <h1>
+    Reporte de horas - Saldo Total
+    <span <%= popover('Saldo a partir do último fechamento.') %> > <%= sign(current_user.total_balance) %> </span>
+  </h1>
 </section>
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Listagem <%= sign(current_user.total_balance) %></h3>
+          <h3 class="box-title"
+              <%= popover("Saldo entre #{@from.strftime('%d/%m/%Y')} e #{@to.strftime('%d/%m/%Y')}. Independente de quadro fechado.")%> >
+            Listagem <%= sign(current_user.balance_in_range(@from, @to)) %>
+          </h3>
           <%= render 'search_form' %>
           <%= render 'print_menu' %>
         </div>
