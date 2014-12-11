@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
     @from = from
     @to = to
     reports = current_user.reports.find_by_date_range(@from, @to)
-    send_data Report.export(reports), filename: 'summary_report.pdf', type: 'application/pdf', disposition: 'inline'
+    send_data Report.export(reports).render, filename: 'summary_report.pdf', type: 'application/pdf', disposition: 'inline'
   end
 
   def new

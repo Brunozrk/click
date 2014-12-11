@@ -1,4 +1,5 @@
 class Report < ActiveRecord::Base
+  
   belongs_to :user
 
   validates :day, :remote, presence: true
@@ -21,6 +22,7 @@ class Report < ActiveRecord::Base
         ["<b>Dia</b>", "<b>Primeira Entrada</b>", "<b>Primeira Saída</b>", "<b>Segunda Entrada</b>",
           "<b>Segunda Saída</b>", "<b>Remoto</b>", "<b>Total</b>", "<b>Saldo</b>"], 
       ]
+
       pdf.fill_color "00000"
 
       pdf.table(
@@ -40,8 +42,8 @@ class Report < ActiveRecord::Base
           report.second_entry.to_s,
           report.second_exit.to_s,
           report.remote.to_s,
-          "<b>#{report.worked_hour_minute.to_s}</b>",
-          "<b>#{report.balance[:time].to_s}</b>"
+          "<b>#{ApplicationController.helpers.hour_minute(report.worked)}</b>",
+          "<b>#{ApplicationController.helpers.hour_minute(report.balance[:time])}</b>"
         ]
         row_colors << (index.even? ? "FFFFFF" : "F5F5F5")
       end
@@ -61,14 +63,8 @@ class Report < ActiveRecord::Base
       }
     end
     
-    return pdf_file.render
+    return pdf_file
 
-  end
-
-  def worked_hour_minute
-    hours = self.worked / (60 * 60)
-    minutes = (self.worked / 60) % 60
-    format('%02d:%02d', hours, minutes)
   end
 
   def worked

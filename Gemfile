@@ -37,6 +37,8 @@ group :development, :test do
 end
 
 group :test do
+  gem 'faker'
+  gem 'pdf-inspector', :require => "pdf/inspector"
   gem 'factory_girl', '~> 4.0'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
