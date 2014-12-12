@@ -16,7 +16,7 @@ describe "verifying pdfs" do
   it "you can render it to a file if you like" do
     pdf = Prawn::Document.new
     pdf.text Faker::Lorem.sentence
-    pdf.render_file "example.pdf"
+    pdf.render_file "tmp/example.pdf"
   end
 end
 
@@ -94,10 +94,10 @@ describe "paging pdfs" do
   it "failing that (it is not stable), you can use PDF::Reader" do
     pdf = Prawn::Document.new
     pdf.text Faker::Lorem.sentence
-    pdf.render_file "example.pdf"
+    pdf.render_file "tmp/example.pdf"
     
     receiver = PageTextReceiver.new
-    pdf = PDF::Reader.file("example.pdf", receiver)
+    pdf = PDF::Reader.file("tmp/example.pdf", receiver)
     puts receiver.content.inspect
   end
 end

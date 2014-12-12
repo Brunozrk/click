@@ -3,6 +3,16 @@ require 'rails_helper'
 describe ReportsController do
   login_user
 
+  describe 'GET #export' do
+    before do
+      get :export
+    end
+
+    it "must be a PDF" do
+      expect(Report.export(assigns(:reports)).render[1,3]).to eq('PDF')
+    end
+  end
+
   describe 'GET #index' do
     let(:page) { '3' }
 
