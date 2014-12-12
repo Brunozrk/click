@@ -77,6 +77,10 @@ class ReportsController < ApplicationController
   end
 
   def report_params
+    params[:report][:first_entry] = "00:00" if params[:report][:first_entry].blank?
+    params[:report][:first_exit] = "00:00" if params[:report][:first_exit].blank?
+    params[:report][:second_entry] = "00:00" if params[:report][:second_entry].blank?
+    params[:report][:second_exit] = "00:00" if params[:report][:second_exit].blank?
     params.require(:report).permit(
       :first_entry,
       :first_exit,
