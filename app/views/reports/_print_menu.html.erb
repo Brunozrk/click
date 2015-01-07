@@ -1,0 +1,13 @@
+<div class="box-tools pull-right">
+	<div class="btn-group">
+		<button type="button" class="btn btn-default dropdown-toggle " data-toggle="dropdown">
+			<span class="caret "></span>&nbsp;Imprimir
+		</button>
+		<ul class="dropdown-menu" class="width: 100px;">
+			<li><%= link_to(' Impressora', reports_path({:from => @from, :to => @to, print: true}), class: "glyphicon glyphicon-print", target: "_blank") %></li>
+			<li><%= link_to('PDF', reports_export_path({:from => @from, :to => @to}), target: "_blank") %></li>
+		</ul>
+	</div>
+</div>
+
+

@@ -14,12 +14,13 @@
             Listagem <%= sign(current_user.balance_in_range(@from, @to)) %>
           </h3>
           <%= render 'search_form' %>
+          <%= render 'print_menu' %>
         </div>
         <%= render 'list' %>
       </div>
     </div>
   </div>
-</section>
+</section
 
 <% content_for :javascript_includes do %>
   <%= javascript_include_tag "reports/index.js" %>

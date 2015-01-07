@@ -12,6 +12,9 @@ gem 'kaminari'
 
 gem 'mina'
 
+gem 'prawn'
+gem 'prawn-table'
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'font-awesome-rails'
@@ -30,9 +33,12 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'sqlite3'
   gem 'mailcatcher'
+  #gem 'therubyracer'
 end
 
 group :test do
+  gem 'faker'
+  gem 'pdf-inspector', :require => "pdf/inspector"
   gem 'factory_girl', '~> 4.0'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false

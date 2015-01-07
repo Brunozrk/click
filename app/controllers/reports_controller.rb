@@ -1,9 +1,17 @@
+
 class ReportsController < ApplicationController
   before_action :authenticate_user!
 
   before_action :initialize_report, only: [:new, :create]
   before_action :load_report, only: [:edit, :update, :destroy]
   before_action :require_permission, only: [:edit, :update, :destroy]
+
+  def export
+    @from = from
+    @to = to
+    @reports = current_user.reports.find_by_date_range(@from, @to)
+    send_data Report.export(@reports).render, filename: 'summary_report.pdf', type: 'application/pdf', disposition: 'inline'
+  end
 
   def new
     @report.day = Date.today
@@ -13,6 +21,7 @@ class ReportsController < ApplicationController
     @from = from
     @to = to
     @reports = current_user.reports.find_by_date_range(@from, @to).page params[:page]
+    render layout: 'print' if params[:print].present?
   end
 
   def create
@@ -68,6 +77,10 @@ class ReportsController < ApplicationController
   end
 
   def report_params
+    params[:report][:first_entry] = "00:00" if params[:report][:first_entry].blank?
+    params[:report][:first_exit] = "00:00" if params[:report][:first_exit].blank?
+    params[:report][:second_entry] = "00:00" if params[:report][:second_entry].blank?
+    params[:report][:second_exit] = "00:00" if params[:report][:second_exit].blank?
     params.require(:report).permit(
       :first_entry,
       :first_exit,

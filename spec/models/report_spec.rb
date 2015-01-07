@@ -77,4 +77,24 @@ describe Report do
       expect(described_class.find_by_date_range(date, date).count).to eq 3
     end
   end
+
+  describe '.export' do
+    let(:reports) { FactoryGirl.build_list(:repor_with_random_date, 85) }
+    let(:pdf_file) { Report.export(reports) }
+    let(:pdf_text) { PDF::Inspector::Text.analyze(pdf_file.render).strings.join(" ").squish }
+
+    it "must be a PDF" do
+      expect(pdf_file.render[1,3]).to eq('PDF')
+    end
+
+    it 'includes report title' do
+      expect(pdf_text).to include("Relatório de Horas")
+    end
+
+    it 'check number of page' do
+      page_analysis = PDF::Inspector::Page.analyze(pdf_file.render)
+      expect(page_analysis.pages.size).to eq 5
+    end
+  end
+
 end
