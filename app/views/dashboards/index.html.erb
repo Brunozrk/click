@@ -40,6 +40,25 @@
               Alterar <i class="fa fa-arrow-circle-right"></i>
             <% end %>
         </div>
-    </div>
+      </div>
+      <% if @next_entry %>
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                  <h3>
+                    <%= l @next_entry, format: :only_time %>
+                  </h3>
+                    <p>
+                      Próxima Entrada
+                    </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-bell-o"></i>
+                </div>
+                <p class="small-box-footer">No dia <strong><%= l @next_entry.to_date %></strong></p>
+            </div>
+        </div>
+      <% end %>
   </div>
 </section>
