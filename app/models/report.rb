@@ -38,8 +38,7 @@ class Report < ActiveRecord::Base
   def self.next_entry
     last_entry = first
     if last_entry.day.cwday < 5
-      last_entry_hour = (entry_time(last_entry.second_exit, last_entry.day) ||
-                         entry_time(last_entry.first_exit, last_entry.day))
+      last_entry_hour = entry_time(last_entry.first_exit, last_entry.day)
       last_entry_hour + 11.hours
     end
   rescue
