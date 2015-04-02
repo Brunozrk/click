@@ -26,12 +26,24 @@ class Report < ActiveRecord::Base
     { time: time, sign: sign }
   end
 
+
   def self.find_by_date_range(from, to)
     where('day >= ? AND day <= ?', from, to)
   end
 
   def self.last_day
     last ? last.day : Date.today
+  end
+
+  def self.next_entry
+    last_entry = first
+    if last_entry.day.cwday < 5
+      last_entry_hour = (entry_time(last_entry.second_exit, last_entry.day) ||
+                         entry_time(last_entry.first_exit, last_entry.day))
+      last_entry_hour + 11.hours
+    end
+  rescue
+    nil
   end
 
   private
@@ -83,5 +95,12 @@ class Report < ActiveRecord::Base
 
   def positive_balance?(hours_per_day)
     hours_per_day <= worked
+  end
+
+  def self.entry_time(time, day)
+    if time
+      hour, minute = time.split(':')
+      DateTime.new(day.year, day.month, day.day, hour.to_i, minute.to_i)
+    end
   end
 end
