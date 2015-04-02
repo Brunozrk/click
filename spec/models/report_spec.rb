@@ -75,7 +75,7 @@ describe Report do
     let!(:report) do
       create(:report, day: date, first_exit: first_exit, second_entry: second_entry, second_exit: second_exit)
     end
-    subject { described_class.next_entry }
+    subject { described_class.next_entry(report.user) }
     let(:first_exit) { '12:00' }
     let(:second_entry) { '13:00' }
     let(:second_exit) { '17:00' }
@@ -98,7 +98,7 @@ describe Report do
       let(:second_exit) { nil }
       let(:expected_date) { DateTime.new(2015, 04, 01, 23, 00) }
 
-      it { should eq expected_date }
+      it { should eq nil }
     end
 
     context 'when are missing both exits' do

@@ -35,10 +35,10 @@ class Report < ActiveRecord::Base
     last ? last.day : Date.today
   end
 
-  def self.next_entry
-    last_entry = first
+  def self.next_entry(user)
+    last_entry = user.reports.first
     if last_entry.day.cwday < 5
-      last_entry_hour = entry_time(last_entry.first_exit, last_entry.day)
+      last_entry_hour = entry_time(last_entry.second_exit, last_entry.day)
       last_entry_hour + 11.hours
     end
   rescue
