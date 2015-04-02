@@ -64,7 +64,7 @@ describe Report do
     end
   end
 
-  describe '#self.find_by_date_range' do
+  describe '.find_by_date_range' do
     let(:date) { Date.new(2014, 02, 03)  }
     it 'find reports by date range' do
       expect(described_class.find_by_date_range(date, date).count).to eq 3
