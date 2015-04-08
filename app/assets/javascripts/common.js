@@ -4,8 +4,8 @@ $(document).ready(function(){
     showInputs: false,
     minuteStep: 5,
     defaultTime: false
-  }).on('focusout', function(){
-    $(this).timepicker("hideWidget");
+  }).on('focus', function(){
+    $('.timepicker').not($(this)).timepicker("hideWidget");
   });
 
   $(".datepicker").datepicker({
