@@ -2,8 +2,10 @@ $(document).ready(function(){
   $(".timepicker").timepicker({
     showMeridian: false,
     showInputs: false,
-    minuteStep: 1,
+    minuteStep: 5,
     defaultTime: false
+  }).on('focus', function(){
+    $('.timepicker').not($(this)).timepicker("hideWidget");
   });
 
   $(".datepicker").datepicker({
